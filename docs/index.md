@@ -1,6 +1,3 @@
-Aquí tienes el `.md` corregido y más consistente (bilingüe, enlaces coherentes, sin HTML innecesario, títulos y badges unificados):
-
-```markdown
 # Dockronos Documentation
 
 <p align="center">
@@ -81,4 +78,3 @@ Bienvenido a **Dockronos** — una Interfaz de Usuario de Terminal (TUI) para ge
   <strong>Happy containerizing with Dockronos! 🐳</strong><br/>
   <strong>¡Feliz containerización con Dockronos! 🐳</strong>
 </p>
-```
