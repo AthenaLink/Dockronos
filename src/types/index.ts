@@ -41,9 +41,30 @@ export interface ServiceConfig {
   directory: string;
 }
 
+export interface ContainerConfig {
+  name: string;
+  image: string;
+  ports?: string[] | undefined;
+  env?: Record<string, string>;
+  volumes?: string[] | undefined;
+  template?: string | undefined;
+  auto_start?: boolean;
+}
+
+export interface GitRepository {
+  name: string;
+  url: string;
+  branch?: string;
+  directory: string;
+  auto_update?: boolean;
+}
+
 export interface ProjectConfig {
   name: string;
   engine: 'docker' | 'podman' | 'auto';
+  projects_directory?: string;
+  repositories?: GitRepository[];
+  containers?: ContainerConfig[];
   services: ServiceConfig[];
   global_env?: string;
 }
