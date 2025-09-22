@@ -14,11 +14,11 @@ Master Dockronos with efficient keyboard navigation. This guide covers all keybo
 | `Escape` | Return to Services | Global |
 
 ### Panel Navigation
-| Key | Action |
-|-----|--------|
-| `1` | Jump to Services panel |
-| `2` | Jump to Metrics panel |
-| `3` | Jump to Logs panel |
+| Key | Action | Description |
+|-----|--------|-------------|
+| `1` | Jump to Services panel | Direct access to container management |
+| `2` | Jump to Metrics panel | Direct access to monitoring |
+| `3` | Jump to Logs panel | Direct access to log streaming |
 
 ## 🖼️ Interface Layout
 
@@ -270,26 +270,26 @@ When dialogs and modals are open:
 ## 📱 Context-Specific Shortcuts
 
 ### When Service is Selected
-| Shortcut | Action |
-|----------|--------|
-| `Enter` | View service details |
-| `D` | View logs for this service |
-| `I` | Show service information |
-| `E` | Edit service environment |
+| Shortcut | Action | Description |
+|----------|--------|-------------|
+| `Enter` | View service details | Show detailed service information |
+| `D` | View logs for this service | Switch to logs panel for selected service |
+| `I` | Show service information | Display service status and configuration |
+| `E` | Edit service environment | Open environment variable editor |
 
 ### When in Follow Mode (Logs)
-| Shortcut | Action |
-|----------|--------|
-| `F` | Disable follow mode |
-| `Space` | Pause/resume following |
-| `End` | Jump to bottom (latest logs) |
+| Shortcut | Action | Description |
+|----------|--------|-------------|
+| `F` | Disable follow mode | Stop automatically following new log entries |
+| `Space` | Pause/resume following | Temporarily pause log following |
+| `End` | Jump to bottom (latest logs) | Go to most recent log entries |
 
 ### When Metrics are Paused
-| Shortcut | Action |
-|----------|--------|
-| `Space` | Resume metric updates |
-| `R` | Force refresh metrics |
-| `Enter` | Resume and expand current metric |
+| Shortcut | Action | Description |
+|----------|--------|-------------|
+| `Space` | Resume metric updates | Continue real-time metric collection |
+| `R` | Force refresh metrics | Manually refresh all metrics |
+| `Enter` | Resume and expand current metric | Resume updates and show detailed view |
 
 ## 🎨 Vi/Vim-Style Navigation
 
