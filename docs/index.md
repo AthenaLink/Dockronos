@@ -1,6 +1,6 @@
 # Dockronos Documentation
 
-![DOCKRONOS IMAGE BANNER](/assets/dockronos-banner.png)
+![DOCKRONOS IMAGE BANNER](https://github.com/AthenaLink/Dockronos/blob/85096be0db2badaa9e838b620e7a7157805f96c5/assets/dockronos-banner.png)
 
 Welcome to **Dockronos** - an interactive Terminal User Interface (TUI) for container management in development environments.
 
