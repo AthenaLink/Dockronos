@@ -17,6 +17,10 @@ Welcome to **Dockronos** - an interactive Terminal User Interface (TUI) for cont
 - **[Advanced Usage](guides/advanced-usage.md)** - Power user features
 - **[Troubleshooting](guides/troubleshooting.md)** - Common issues and solutions
 
+<p align="center">
+  <img alt="Dockronos banner" src="https://raw.githubusercontent.com/AthenaLink/Dockronos/main/assets/dockronos-capture.png" width="100%" />
+</p>
+
 ## 📚 Documentation
 
 ### Core Guides

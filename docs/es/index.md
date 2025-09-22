@@ -17,6 +17,10 @@ Bienvenido a **Dockronos** - una Interfaz de Usuario de Terminal (TUI) interacti
 - **[Uso Avanzado](guides/advanced-usage.md)** - Características para usuarios expertos
 - **[Solución de Problemas](guides/troubleshooting.md)** - Problemas comunes y soluciones
 
+<p align="center">
+  <img alt="Dockronos banner" src="https://raw.githubusercontent.com/AthenaLink/Dockronos/main/assets/dockronos-capture.png" width="100%" />
+</p>
+
 ## 📚 Documentación
 
 ### Guías Principales

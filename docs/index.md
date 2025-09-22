@@ -7,6 +7,10 @@
 Welcome to **Dockronos** — an interactive Terminal User Interface (TUI) for container management in development environments.  
 Bienvenido a **Dockronos** — una Interfaz de Usuario de Terminal (TUI) para gestionar contenedores en entornos de desarrollo.
 
+<p align="center">
+  <img alt="Dockronos banner" src="https://raw.githubusercontent.com/AthenaLink/Dockronos/main/assets/dockronos-capture.png" width="100%" />
+</p>
+
 ---
 
 ## 🌍 Choose Your Language / Elige tu idioma
