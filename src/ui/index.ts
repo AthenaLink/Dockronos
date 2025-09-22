@@ -372,6 +372,9 @@ export class CronosUI {
       // Initialize configuration
       await configManager.loadConfig();
 
+      // Initialize container engine
+      await containerEngine.initialize();
+
       // Update status bar with detected engine
       const engine = containerEngine.getEngine();
       this.updateStatusBar(`Ready | Engine: ${engine} | Press ? for help`);

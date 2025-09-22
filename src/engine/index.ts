@@ -7,9 +7,17 @@ const execAsync = promisify(exec);
 export class ContainerEngineManager {
   private engine: ContainerEngine | null = null;
   private commands: EngineCommands | null = null;
+  private initialized = false;
 
   constructor() {
-    this.detectEngine();
+    // Don't call detectEngine in constructor since it's async
+  }
+
+  async initialize(): Promise<void> {
+    if (!this.initialized) {
+      await this.detectEngine();
+      this.initialized = true;
+    }
   }
 
   private async detectEngine(): Promise<void> {
@@ -56,21 +64,23 @@ export class ContainerEngineManager {
   }
 
   getEngine(): ContainerEngine {
-    if (!this.engine) {
-      throw new Error('Container engine not detected');
+    if (!this.initialized || !this.engine) {
+      throw new Error('Container engine not initialized - call initialize() first');
     }
     return this.engine;
   }
 
   getCommands(): EngineCommands {
-    if (!this.commands) {
-      throw new Error('Container engine commands not initialized');
+    if (!this.initialized || !this.commands) {
+      throw new Error('Container engine not initialized - call initialize() first');
     }
     return this.commands;
   }
 
   async listContainers(): Promise<ContainerInfo[]> {
-    const { stdout } = await execAsync(`${this.commands?.ps} --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.CreatedAt}}"`);
+    await this.initialize();
+
+    const { stdout } = await execAsync(`${this.commands!.ps} --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.CreatedAt}}"`);
 
     const lines = stdout.trim().split('\n').slice(1); // Skip header
     return lines.map(line => {
@@ -97,35 +107,43 @@ export class ContainerEngineManager {
   }
 
   async startServices(services: string[], cwd?: string): Promise<void> {
-    const command = services.length > 0
-      ? `${this.commands?.up} ${services.join(' ')}`
-      : this.commands?.up;
+    await this.initialize();
 
-    await this.executeCommand(command || '', cwd);
+    const command = services.length > 0
+      ? `${this.commands!.up} ${services.join(' ')}`
+      : this.commands!.up;
+
+    await this.executeCommand(command, cwd);
   }
 
   async stopServices(services: string[], cwd?: string): Promise<void> {
-    const command = services.length > 0
-      ? `${this.commands?.down} ${services.join(' ')}`
-      : this.commands?.down;
+    await this.initialize();
 
-    await this.executeCommand(command || '', cwd);
+    const command = services.length > 0
+      ? `${this.commands!.down} ${services.join(' ')}`
+      : this.commands!.down;
+
+    await this.executeCommand(command, cwd);
   }
 
   async restartServices(services: string[], cwd?: string): Promise<void> {
-    const command = services.length > 0
-      ? `${this.commands?.restart} ${services.join(' ')}`
-      : this.commands?.restart;
+    await this.initialize();
 
-    await this.executeCommand(command || '', cwd);
+    const command = services.length > 0
+      ? `${this.commands!.restart} ${services.join(' ')}`
+      : this.commands!.restart;
+
+    await this.executeCommand(command, cwd);
   }
 
   async getLogs(service?: string, follow = false, cwd?: string): Promise<NodeJS.ReadableStream> {
-    const command = service
-      ? `${this.commands?.logs} ${follow ? '-f' : ''} ${service}`
-      : `${this.commands?.logs} ${follow ? '-f' : ''}`;
+    await this.initialize();
 
-    const child = spawn('sh', ['-c', command || ''], {
+    const command = service
+      ? `${this.commands!.logs} ${follow ? '-f' : ''} ${service}`
+      : `${this.commands!.logs} ${follow ? '-f' : ''}`;
+
+    const child = spawn('sh', ['-c', command], {
       cwd,
       stdio: ['ignore', 'pipe', 'pipe']
     });
@@ -134,7 +152,9 @@ export class ContainerEngineManager {
   }
 
   async getStats(): Promise<string[]> {
-    const { stdout } = await execAsync(`${this.commands?.stats} --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}"`);
+    await this.initialize();
+
+    const { stdout } = await execAsync(`${this.commands!.stats} --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}"`);
     return stdout.trim().split('\n').slice(1); // Skip header
   }
 
