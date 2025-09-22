@@ -1,4 +1,4 @@
-import * as blessed from 'neo-blessed';
+import blessed from 'blessed';
 import type { ContainerInfo } from '../../types/index.js';
 
 export interface ServicesTableOptions {

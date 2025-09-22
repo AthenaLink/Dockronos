@@ -1,4 +1,4 @@
-import * as blessed from 'neo-blessed';
+import blessed from 'blessed';
 import { ServicesTable } from './components/services-table.js';
 import { MetricsPanel } from './components/metrics-panel.js';
 import { LogsPanel } from './components/logs-panel.js';

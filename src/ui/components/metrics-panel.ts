@@ -1,4 +1,4 @@
-import * as blessed from 'neo-blessed';
+import blessed from 'blessed';
 import * as contrib from 'blessed-contrib';
 import type { SystemMetrics, ContainerMetrics } from '../../types/index.js';
 
@@ -59,28 +59,36 @@ export class MetricsPanel {
       },
     });
 
-    // CPU Gauge
-    this.cpuGauge = contrib.gauge({
+    // CPU Progress bar (using basic blessed box instead of contrib gauge)
+    this.cpuGauge = blessed.box({
       parent: this.widget,
       top: 8,
       left: 0,
       width: '50%',
       height: 6,
-      label: 'CPU Usage',
-      stroke: 'green',
-      fill: 'white',
+      label: ' CPU Usage ',
+      border: { type: 'line' },
+      style: {
+        fg: 'white',
+        border: { fg: 'green' }
+      },
+      content: 'CPU: 0%'
     });
 
-    // Memory Gauge
-    this.memoryGauge = contrib.gauge({
+    // Memory Progress bar (using basic blessed box instead of contrib gauge)
+    this.memoryGauge = blessed.box({
       parent: this.widget,
       top: 8,
       left: '50%',
       width: '50%',
       height: 6,
-      label: 'Memory Usage',
-      stroke: 'cyan',
-      fill: 'white',
+      label: ' Memory Usage ',
+      border: { type: 'line' },
+      style: {
+        fg: 'white',
+        border: { fg: 'cyan' }
+      },
+      content: 'Memory: 0%'
     });
   }
 
@@ -123,9 +131,12 @@ export class MetricsPanel {
 
     this.systemMetricsBox.setContent(systemInfo);
 
-    // Update gauges
-    this.cpuGauge.setPercent(metrics.cpu);
-    this.memoryGauge.setPercent(metrics.memory.percentage);
+    // Update progress indicators
+    const cpuBar = this.createProgressBar(metrics.cpu, 'CPU');
+    const memBar = this.createProgressBar(metrics.memory.percentage, 'Memory');
+
+    this.cpuGauge.setContent(`CPU: ${metrics.cpu.toFixed(1)}%\n${cpuBar}`);
+    this.memoryGauge.setContent(`Memory: ${metrics.memory.percentage.toFixed(1)}%\n${memBar}`);
 
     this.widget.screen?.render();
   }
@@ -152,6 +163,15 @@ export class MetricsPanel {
     }
 
     this.widget.screen?.render();
+  }
+
+  private createProgressBar(percentage: number, label: string): string {
+    const width = 20;
+    const filled = Math.round((percentage / 100) * width);
+    const empty = width - filled;
+
+    const bar = '█'.repeat(filled) + '░'.repeat(empty);
+    return `[${bar}]`;
   }
 
   private formatBytes(bytes: number): string {
