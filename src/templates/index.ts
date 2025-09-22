@@ -64,13 +64,13 @@ export class TemplateManager {
 
     for (const template of this.listTemplates()) {
       if (['postgres', 'mysql', 'mongo'].includes(template.name)) {
-        categories['Databases'].push(template);
+        categories['Databases']?.push(template);
       } else if (['nginx', 'apache'].includes(template.name)) {
-        categories['Web Servers'].push(template);
+        categories['Web Servers']?.push(template);
       } else if (['redis', 'memcached'].includes(template.name)) {
-        categories['Caching'].push(template);
+        categories['Caching']?.push(template);
       } else {
-        categories['Other'].push(template);
+        categories['Other']?.push(template);
       }
     }
 

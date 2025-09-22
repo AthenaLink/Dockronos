@@ -11,6 +11,7 @@
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
+    "build:pkg": "tsc -p tsconfig.pkg.json",
     "build:watch": "tsc --watch",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -18,10 +19,10 @@
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write src/",
     "typecheck": "tsc --noEmit",
-    "pkg:build": "pnpm build && node build/build.js",
-    "pkg:linux": "pkg dist/index.js --targets node18-linux-x64 --out-path pkg/",
-    "pkg:macos": "pkg dist/index.js --targets node18-macos-x64 --out-path pkg/",
-    "pkg:windows": "pkg dist/index.js --targets node18-win-x64 --out-path pkg/",
+    "pkg:build": "pnpm build:pkg && node build/pkg-build.cjs",
+    "pkg:linux": "pnpm pkg:build && pkg dist-pkg/index.js --targets node18-linux-x64 --output pkg/cronos-linux",
+    "pkg:macos": "pnpm pkg:build && pkg dist-pkg/index.js --targets node18-macos-x64 --output pkg/cronos-macos",
+    "pkg:windows": "pnpm pkg:build && pkg dist-pkg/index.js --targets node18-win-x64 --output pkg/cronos-windows.exe",
     "pkg:all": "pnpm pkg:linux && pnpm pkg:macos && pnpm pkg:windows"
   },
   "keywords": [
@@ -43,7 +44,7 @@
     "@types/blessed": "^0.1.25",
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.11.0",
-    "chalk": "^5.3.0",
+    "chalk": "4.1.2",
     "chokidar": "^3.5.3",
     "commander": "^11.1.0",
     "dotenv": "^16.3.1",
@@ -66,16 +67,21 @@
     "typescript": "^5.3.3"
   },
   "pkg": {
-    "scripts": "dist/**/*.js",
+    "scripts": "dist-pkg/**/*.js",
     "assets": [
-      "package.json"
+      "package.json",
+      "node_modules/@types/blessed/**/*"
     ],
     "targets": [
       "node18-linux-x64",
       "node18-macos-x64",
       "node18-win-x64"
     ],
-    "outputPath": "pkg"
+    "outputPath": "pkg",
+    "options": [
+      "--no-bytecode",
+      "--public-packages=*"
+    ]
   },
   "jest": {
     "preset": "ts-jest",

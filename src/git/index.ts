@@ -160,8 +160,8 @@ export class GitManager {
           { cwd: fullPath }
         );
         const [aheadStr, behindStr] = aheadBehind.trim().split('\t');
-        ahead = parseInt(aheadStr) || 0;
-        behind = parseInt(behindStr) || 0;
+        ahead = parseInt(aheadStr || '0') || 0;
+        behind = parseInt(behindStr || '0') || 0;
       } catch {
         // Ignore errors (might not have remote tracking)
       }
@@ -325,12 +325,17 @@ export class GitManager {
         if (composeFile) {
           const serviceName = composeDir === '.' ? repositoryPath : `${repositoryPath}-${composeDir.replace(/[^a-zA-Z0-9]/g, '-')}`;
 
-          services.push({
+          const serviceConfig: any = {
             name: serviceName,
             directory: join(this.projectsDirectory, repositoryPath, composeDir),
-            compose_file: composeFile,
-            env_file: envFile
-          });
+            compose_file: composeFile
+          };
+
+          if (envFile !== undefined) {
+            serviceConfig.env_file = envFile;
+          }
+
+          services.push(serviceConfig);
         }
       } catch (error) {
         console.error(`Error discovering services in ${fullPath}:`, error);
