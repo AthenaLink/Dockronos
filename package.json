@@ -1,0 +1,98 @@
+{
+  "name": "cronos",
+  "version": "1.0.0",
+  "description": "An interactive console application for container management on development environment",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "cronos": "dist/index.js"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "typecheck": "tsc --noEmit",
+    "pkg:build": "pnpm build && node build/build.js",
+    "pkg:linux": "pkg dist/index.js --targets node18-linux-x64 --out-path pkg/",
+    "pkg:macos": "pkg dist/index.js --targets node18-macos-x64 --out-path pkg/",
+    "pkg:windows": "pkg dist/index.js --targets node18-win-x64 --out-path pkg/",
+    "pkg:all": "pnpm pkg:linux && pnpm pkg:macos && pnpm pkg:windows"
+  },
+  "keywords": [
+    "docker",
+    "podman",
+    "containers",
+    "tui",
+    "terminal",
+    "microservices",
+    "development",
+    "monitoring"
+  ],
+  "author": "Cronos Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@types/blessed": "^0.1.25",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
+    "chalk": "^5.3.0",
+    "chokidar": "^3.5.3",
+    "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "neo-blessed": "^0.2.0",
+    "systeminformation": "^5.21.20",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "pkg": "^5.8.1",
+    "prettier": "^3.1.1",
+    "ts-jest": "^29.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "pkg": {
+    "scripts": "dist/**/*.js",
+    "assets": [
+      "package.json"
+    ],
+    "targets": [
+      "node18-linux-x64",
+      "node18-macos-x64",
+      "node18-win-x64"
+    ],
+    "outputPath": "pkg"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    }
+  }
+}
