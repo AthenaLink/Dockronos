@@ -49,23 +49,23 @@ Choose the installation method that works best for you:
 
 ```bash
 # Linux
-curl -L -o dockronos https://github.com/your-org/dockronos/releases/latest/download/dockronos-linux
+curl -L -o dockronos https://github.com/athenalink/dockronos/releases/latest/download/dockronos-linux
 chmod +x dockronos
 sudo mv dockronos /usr/local/bin/
 
 # macOS
-curl -L -o dockronos https://github.com/your-org/dockronos/releases/latest/download/dockronos-macos
+curl -L -o dockronos https://github.com/athenalink/dockronos/releases/latest/download/dockronos-macos
 chmod +x dockronos
 sudo mv dockronos /usr/local/bin/
 
 # Windows (PowerShell)
-Invoke-WebRequest -Uri "https://github.com/your-org/dockronos/releases/latest/download/dockronos-windows.exe" -OutFile "dockronos.exe"
+Invoke-WebRequest -Uri "https://github.com/athenalink/dockronos/releases/latest/download/dockronos-windows.exe" -OutFile "dockronos.exe"
 ```
 
 ### Option B: Build from Source
 
 ```bash
-git clone https://github.com/your-org/dockronos.git
+git clone https://github.com/athenalink/dockronos.git
 cd dockronos
 pnpm install
 pnpm build
@@ -509,7 +509,7 @@ If you encounter issues:
 1. **Check the logs**: Use `dockronos start --debug` for detailed logging
 2. **Validate config**: Run `dockronos init --validate`
 3. **Read documentation**: See [Troubleshooting Guide](troubleshooting.md)
-4. **Ask for help**: Visit [GitHub Discussions](https://github.com/your-org/dockronos/discussions)
+4. **Ask for help**: Visit [GitHub Discussions](https://github.com/athenalink/dockronos/discussions)
 
 ## 📚 Example Projects
 
@@ -560,4 +560,4 @@ containers:
 
 You're now ready to efficiently manage containers in your development workflow. Happy containerizing!
 
-*Need help? Check our [Troubleshooting Guide](troubleshooting.md) or join the discussion on [GitHub](https://github.com/your-org/dockronos/discussions).*
+*Need help? Check our [Troubleshooting Guide](troubleshooting.md) or join the discussion on [GitHub](https://github.com/athenalink/dockronos/discussions).*

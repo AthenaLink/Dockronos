@@ -57,8 +57,8 @@ Welcome to **Dockronos** - an interactive Terminal User Interface (TUI) for cont
 ## 🤝 Getting Help
 
 - [Troubleshooting Guide](guides/troubleshooting.md) - Common issues
-- [GitHub Issues](https://github.com/your-org/dockronos/issues) - Bug reports
-- [GitHub Discussions](https://github.com/your-org/dockronos/discussions) - Questions
+- [GitHub Issues](https://github.com/athenalink/dockronos/issues) - Bug reports
+- [GitHub Discussions](https://github.com/athenalink/dockronos/discussions) - Questions
 
 ---
 

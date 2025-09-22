@@ -43,7 +43,7 @@ This comprehensive troubleshooting guide helps you diagnose and resolve common i
    npm install -g dockronos
 
    # Or use binary installation
-   curl -L https://github.com/your-org/dockronos/releases/latest/download/dockronos-linux -o ~/.local/bin/dockronos
+   curl -L https://github.com/athenalink/dockronos/releases/latest/download/dockronos-linux -o ~/.local/bin/dockronos
    chmod +x ~/.local/bin/dockronos
    ```
 
@@ -79,7 +79,7 @@ This comprehensive troubleshooting guide helps you diagnose and resolve common i
 3. **Use Binary Installation (Recommended):**
    ```bash
    # Download and install binary directly
-   sudo curl -L https://github.com/your-org/dockronos/releases/latest/download/dockronos-$(uname -s)-$(uname -m) -o /usr/local/bin/dockronos
+   sudo curl -L https://github.com/athenalink/dockronos/releases/latest/download/dockronos-$(uname -s)-$(uname -m) -o /usr/local/bin/dockronos
    sudo chmod +x /usr/local/bin/dockronos
    ```
 
@@ -593,8 +593,8 @@ echo "✅ Dockronos health check passed"
 
 ### Community Support
 
-- **GitHub Issues**: [Report bugs and feature requests](https://github.com/your-org/dockronos/issues)
-- **Discussions**: [Community Q&A and discussions](https://github.com/your-org/dockronos/discussions)
+- **GitHub Issues**: [Report bugs and feature requests](https://github.com/athenalink/dockronos/issues)
+- **Discussions**: [Community Q&A and discussions](https://github.com/athenalink/dockronos/discussions)
 - **Documentation**: [Complete documentation](https://dockronos.dev/docs)
 
 ### Reporting Bugs

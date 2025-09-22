@@ -967,7 +967,7 @@ describe('DeploymentPlugin', () => {
   "keywords": ["dockronos", "plugin", "monitoring", "metrics"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/dockronos-plugin-monitoring"
+    "url": "https://github.com/athenalink/dockronos-plugin-monitoring"
   },
   "peerDependencies": {
     "dockronos": "^2.0.0"

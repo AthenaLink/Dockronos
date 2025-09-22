@@ -80,7 +80,7 @@ Perfect for developers who prefer working in the terminal and need efficient con
 
 ```bash
 # Download from releases page
-wget https://github.com/your-org/dockronos/releases/latest/download/dockronos-linux
+wget https://github.com/athenalink/dockronos/releases/latest/download/dockronos-linux
 chmod +x dockronos-linux
 ./dockronos-linux
 ```
@@ -89,7 +89,7 @@ chmod +x dockronos-linux
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/dockronos.git
+git clone https://github.com/athenalink/dockronos.git
 cd dockronos
 
 # Install dependencies
@@ -312,7 +312,7 @@ dockronos init --auto-discover
 
 ```bash
 # Clone and setup
-git clone https://github.com/your-org/dockronos.git
+git clone https://github.com/athenalink/dockronos.git
 cd dockronos
 
 # Install dependencies
@@ -571,7 +571,7 @@ Dockronos is built on the shoulders of giants. Special thanks to:
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=your-org/dockronos&type=Date)](https://star-history.com/#your-org/dockronos&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=athenalink/dockronos&type=Date)](https://star-history.com/#athenalink/dockronos&Date)
 
 ---
 
@@ -579,6 +579,6 @@ Dockronos is built on the shoulders of giants. Special thanks to:
 
 **Made with ❤️ for developers who live in the terminal**
 
-[Website](https://dockronos.dev) • [Documentation](docs/) • [Issues](https://github.com/your-org/dockronos/issues) • [Discussions](https://github.com/your-org/dockronos/discussions)
+[Website](https://dockronos.dev) • [Documentation](docs/) • [Issues](https://github.com/athenalink/dockronos/issues) • [Discussions](https://github.com/athenalink/dockronos/discussions)
 
 </div>

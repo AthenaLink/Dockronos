@@ -28,7 +28,7 @@ Pre-built binaries are self-contained executables that don't require Node.js ins
 #### Linux
 ```bash
 # Download the latest release
-curl -L -o dockronos https://github.com/your-org/dockronos/releases/latest/download/dockronos-linux
+curl -L -o dockronos https://github.com/athenalink/dockronos/releases/latest/download/dockronos-linux
 
 # Make it executable
 chmod +x dockronos
@@ -43,7 +43,7 @@ dockronos
 #### macOS
 ```bash
 # Download the latest release
-curl -L -o dockronos https://github.com/your-org/dockronos/releases/latest/download/dockronos-macos
+curl -L -o dockronos https://github.com/athenalink/dockronos/releases/latest/download/dockronos-macos
 
 # Make it executable
 chmod +x dockronos
@@ -58,7 +58,7 @@ dockronos
 #### Windows
 ```powershell
 # Download using PowerShell
-Invoke-WebRequest -Uri "https://github.com/your-org/dockronos/releases/latest/download/dockronos-windows.exe" -OutFile "dockronos.exe"
+Invoke-WebRequest -Uri "https://github.com/athenalink/dockronos/releases/latest/download/dockronos-windows.exe" -OutFile "dockronos.exe"
 
 # Add to PATH (optional)
 # Move dockronos.exe to a directory in your PATH
@@ -72,7 +72,7 @@ Invoke-WebRequest -Uri "https://github.com/your-org/dockronos/releases/latest/do
 #### Homebrew (macOS/Linux)
 ```bash
 # Add our tap (coming soon)
-brew tap your-org/dockronos
+brew tap athenalink/dockronos
 brew install dockronos
 
 # Run
@@ -82,7 +82,7 @@ dockronos
 #### Scoop (Windows)
 ```powershell
 # Add bucket (coming soon)
-scoop bucket add dockronos https://github.com/your-org/scoop-dockronos
+scoop bucket add dockronos https://github.com/athenalink/scoop-dockronos
 scoop install dockronos
 
 # Run
@@ -112,7 +112,7 @@ npm install -g pnpm
 #### Build Steps
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/dockronos.git
+git clone https://github.com/athenalink/dockronos.git
 cd dockronos
 
 # Install dependencies
@@ -138,13 +138,13 @@ Run Dockronos itself in a container:
 docker run -it --rm \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $(pwd):/workspace \
-  your-org/dockronos:latest
+  athenalink/dockronos:latest
 
 # Run with Podman
 podman run -it --rm \
   -v /run/user/$(id -u)/podman/podman.sock:/var/run/docker.sock \
   -v $(pwd):/workspace \
-  your-org/dockronos:latest
+  athenalink/dockronos:latest
 ```
 
 ## 🔧 Container Engine Setup
@@ -296,7 +296,7 @@ dockronos
 ### Binary Installation
 ```bash
 # Download latest version
-curl -L -o dockronos-new https://github.com/your-org/dockronos/releases/latest/download/dockronos-linux
+curl -L -o dockronos-new https://github.com/athenalink/dockronos/releases/latest/download/dockronos-linux
 
 # Replace existing binary
 chmod +x dockronos-new
@@ -425,8 +425,8 @@ If you encounter issues during installation:
 
 1. **Check system requirements** above
 2. **Review error messages** carefully
-3. **Search existing issues** on [GitHub](https://github.com/your-org/dockronos/issues)
-4. **Ask for help** in [Discussions](https://github.com/your-org/dockronos/discussions)
+3. **Search existing issues** on [GitHub](https://github.com/athenalink/dockronos/issues)
+4. **Ask for help** in [Discussions](https://github.com/athenalink/dockronos/discussions)
 5. **Report bugs** with installation details
 
 ### Diagnostic Information
@@ -462,4 +462,4 @@ After successful installation:
 
 ---
 
-*Need help? Check our [Troubleshooting Guide](guides/troubleshooting.md) or ask in [GitHub Discussions](https://github.com/your-org/dockronos/discussions).*
+*Need help? Check our [Troubleshooting Guide](guides/troubleshooting.md) or ask in [GitHub Discussions](https://github.com/athenalink/dockronos/discussions).*
