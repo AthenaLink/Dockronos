@@ -1,5 +1,7 @@
 # Dockronos Documentation
 
+![DOCKRONOS IMAGE BANNER](/assets/dockronos-banner.png)
+
 Welcome to **Dockronos** - an interactive Terminal User Interface (TUI) for container management in development environments.
 
 ## 🚀 Quick Start
